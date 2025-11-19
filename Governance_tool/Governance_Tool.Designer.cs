@@ -29,11 +29,6 @@
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.update_status = new System.Windows.Forms.Button();
-            this.searchby_l1_handler = new System.Windows.Forms.ComboBox();
-            this.searchby_date = new System.Windows.Forms.DateTimePicker();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.txt_CheckValue = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.txt_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txt_Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -44,6 +39,11 @@
             this.txt_LastUpdatedBy = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txt_IsStatus_Updated = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txt_Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.update_status = new System.Windows.Forms.Button();
+            this.searchby_l1_handler = new System.Windows.Forms.ComboBox();
+            this.searchby_date = new System.Windows.Forms.DateTimePicker();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.reports = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -71,55 +71,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(1617, 669);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
-            // 
-            // update_status
-            // 
-            this.update_status.Location = new System.Drawing.Point(25, 83);
-            this.update_status.Name = "update_status";
-            this.update_status.Size = new System.Drawing.Size(162, 43);
-            this.update_status.TabIndex = 1;
-            this.update_status.Text = "Update Status";
-            this.update_status.UseVisualStyleBackColor = true;
-            this.update_status.Click += new System.EventHandler(this.update_status_Click);
-            // 
-            // searchby_l1_handler
-            // 
-            this.searchby_l1_handler.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.searchby_l1_handler.FormattingEnabled = true;
-            this.searchby_l1_handler.Location = new System.Drawing.Point(441, 36);
-            this.searchby_l1_handler.Name = "searchby_l1_handler";
-            this.searchby_l1_handler.Size = new System.Drawing.Size(290, 28);
-            this.searchby_l1_handler.TabIndex = 2;
-            this.searchby_l1_handler.SelectedIndexChanged += new System.EventHandler(this.searchby_l1_handler_SelectedIndexChanged);
-            // 
-            // searchby_date
-            // 
-            this.searchby_date.CustomFormat = " ";
-            this.searchby_date.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.searchby_date.Location = new System.Drawing.Point(774, 37);
-            this.searchby_date.Name = "searchby_date";
-            this.searchby_date.Size = new System.Drawing.Size(217, 26);
-            this.searchby_date.TabIndex = 3;
-            this.searchby_date.ValueChanged += new System.EventHandler(this.searchby_date_ValueChanged);
-            this.searchby_date.KeyDown += new System.Windows.Forms.KeyEventHandler(this.searchby_date_KeyDown);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(491, 83);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(162, 20);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Search by L1 Handler";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(822, 83);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(119, 20);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Search by Date";
             // 
             // txt_CheckValue
             // 
@@ -201,6 +152,56 @@
             this.txt_Description.MinimumWidth = 8;
             this.txt_Description.Name = "txt_Description";
             this.txt_Description.Width = 400;
+            // 
+            // update_status
+            // 
+            this.update_status.Location = new System.Drawing.Point(25, 83);
+            this.update_status.Name = "update_status";
+            this.update_status.Size = new System.Drawing.Size(162, 43);
+            this.update_status.TabIndex = 1;
+            this.update_status.Text = "Update Status";
+            this.update_status.UseVisualStyleBackColor = true;
+            this.update_status.Click += new System.EventHandler(this.update_status_Click);
+            // 
+            // searchby_l1_handler
+            // 
+            this.searchby_l1_handler.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.searchby_l1_handler.FormattingEnabled = true;
+            this.searchby_l1_handler.Location = new System.Drawing.Point(441, 36);
+            this.searchby_l1_handler.Name = "searchby_l1_handler";
+            this.searchby_l1_handler.Size = new System.Drawing.Size(290, 28);
+            this.searchby_l1_handler.TabIndex = 2;
+            this.searchby_l1_handler.SelectedIndexChanged += new System.EventHandler(this.searchby_l1_handler_SelectedIndexChanged);
+            this.searchby_l1_handler.KeyDown += new System.Windows.Forms.KeyEventHandler(this.searchby_l1_handler_KeyDown);
+            // 
+            // searchby_date
+            // 
+            this.searchby_date.CustomFormat = " ";
+            this.searchby_date.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.searchby_date.Location = new System.Drawing.Point(774, 37);
+            this.searchby_date.Name = "searchby_date";
+            this.searchby_date.Size = new System.Drawing.Size(217, 26);
+            this.searchby_date.TabIndex = 3;
+            this.searchby_date.ValueChanged += new System.EventHandler(this.searchby_date_ValueChanged);
+            this.searchby_date.KeyDown += new System.Windows.Forms.KeyEventHandler(this.searchby_date_KeyDown);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(491, 83);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(162, 20);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Search by L1 Handler";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(822, 83);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(119, 20);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Search by Date";
             // 
             // reports
             // 

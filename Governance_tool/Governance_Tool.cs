@@ -26,6 +26,7 @@ namespace Governance_tool
 
         private void Governance_Tool_Load(object sender, EventArgs e)
         {
+            searchby_date.Value = DateTime.Now.ToLocalTime();
             searchby_L1_handler_list();
             reset_overall();
         }
@@ -189,6 +190,14 @@ namespace Governance_tool
             catch (Exception ab)
             {
                 MessageBox.Show("Error Generated Details: " + ab.ToString());
+            }
+        }
+
+        private void searchby_l1_handler_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape || e.KeyCode == Keys.Delete || e.KeyCode == Keys.Space || e.KeyCode == Keys.Back)
+            {
+                searchby_l1_handler.SelectedIndex = -1;
             }
         }
     }
