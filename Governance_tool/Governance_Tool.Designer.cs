@@ -45,6 +45,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.update_complete = new System.Windows.Forms.Button();
             this.update_pending = new System.Windows.Forms.Button();
+            this.reports = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -64,11 +65,11 @@
             this.txt_LastUpdatedBy,
             this.txt_IsStatus_Updated,
             this.txt_Description});
-            this.dataGridView1.Location = new System.Drawing.Point(25, 156);
+            this.dataGridView1.Location = new System.Drawing.Point(25, 169);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.RowTemplate.Height = 28;
-            this.dataGridView1.Size = new System.Drawing.Size(1617, 773);
+            this.dataGridView1.Size = new System.Drawing.Size(1617, 760);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
             // 
@@ -195,7 +196,7 @@
             // 
             // update_complete
             // 
-            this.update_complete.Location = new System.Drawing.Point(25, 46);
+            this.update_complete.Location = new System.Drawing.Point(25, 59);
             this.update_complete.Name = "update_complete";
             this.update_complete.Size = new System.Drawing.Size(188, 43);
             this.update_complete.TabIndex = 6;
@@ -205,7 +206,7 @@
             // 
             // update_pending
             // 
-            this.update_pending.Location = new System.Drawing.Point(25, 95);
+            this.update_pending.Location = new System.Drawing.Point(25, 110);
             this.update_pending.Name = "update_pending";
             this.update_pending.Size = new System.Drawing.Size(188, 43);
             this.update_pending.TabIndex = 7;
@@ -213,12 +214,23 @@
             this.update_pending.UseVisualStyleBackColor = true;
             this.update_pending.Click += new System.EventHandler(this.update_pending_Click);
             // 
+            // reports
+            // 
+            this.reports.Location = new System.Drawing.Point(25, 8);
+            this.reports.Name = "reports";
+            this.reports.Size = new System.Drawing.Size(188, 43);
+            this.reports.TabIndex = 8;
+            this.reports.Text = "Reports";
+            this.reports.UseVisualStyleBackColor = true;
+            this.reports.Click += new System.EventHandler(this.reports_Click);
+            // 
             // Governance_Tool
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1782, 941);
+            this.Controls.Add(this.reports);
             this.Controls.Add(this.update_pending);
             this.Controls.Add(this.update_complete);
             this.Controls.Add(this.label2);
@@ -255,5 +267,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn txt_Description;
         private System.Windows.Forms.Button update_complete;
         private System.Windows.Forms.Button update_pending;
+        private System.Windows.Forms.Button reports;
     }
 }

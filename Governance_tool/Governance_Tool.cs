@@ -238,5 +238,17 @@ namespace Governance_tool
                 MessageBox.Show("Error Generated Details: " + ab.ToString());
             }
         }
+
+        private void reports_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                System.Diagnostics.Process.Start("https://app.powerbi.com/groups/81c3ab7d-0a2a-46f2-b54f-38eb239011a1/reports/d5e881ff-ef90-403d-a59c-4de3e70f9f7f/ReportSection31a41de679b2bcefa277?experience=power-bi");
+            }
+            catch (Exception ab)
+            {
+                MessageBox.Show("Unable to open link that was clicked. Following are the error generated details" + ab.ToString());
+            }
+        }
     }
 }
