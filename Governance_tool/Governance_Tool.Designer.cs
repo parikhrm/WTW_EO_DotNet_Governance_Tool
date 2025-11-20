@@ -39,12 +39,12 @@
             this.txt_LastUpdatedBy = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txt_IsStatus_Updated = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txt_Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.update_status = new System.Windows.Forms.Button();
             this.searchby_l1_handler = new System.Windows.Forms.ComboBox();
             this.searchby_date = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.reports = new System.Windows.Forms.Button();
+            this.update_complete = new System.Windows.Forms.Button();
+            this.update_pending = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -68,7 +68,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.RowTemplate.Height = 28;
-            this.dataGridView1.Size = new System.Drawing.Size(1617, 669);
+            this.dataGridView1.Size = new System.Drawing.Size(1617, 773);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
             // 
@@ -153,16 +153,6 @@
             this.txt_Description.Name = "txt_Description";
             this.txt_Description.Width = 400;
             // 
-            // update_status
-            // 
-            this.update_status.Location = new System.Drawing.Point(25, 83);
-            this.update_status.Name = "update_status";
-            this.update_status.Size = new System.Drawing.Size(162, 43);
-            this.update_status.TabIndex = 1;
-            this.update_status.Text = "Update Status";
-            this.update_status.UseVisualStyleBackColor = true;
-            this.update_status.Click += new System.EventHandler(this.update_status_Click);
-            // 
             // searchby_l1_handler
             // 
             this.searchby_l1_handler.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -203,14 +193,25 @@
             this.label2.TabIndex = 5;
             this.label2.Text = "Search by Date";
             // 
-            // reports
+            // update_complete
             // 
-            this.reports.Location = new System.Drawing.Point(205, 83);
-            this.reports.Name = "reports";
-            this.reports.Size = new System.Drawing.Size(137, 43);
-            this.reports.TabIndex = 6;
-            this.reports.Text = "Reports";
-            this.reports.UseVisualStyleBackColor = true;
+            this.update_complete.Location = new System.Drawing.Point(25, 46);
+            this.update_complete.Name = "update_complete";
+            this.update_complete.Size = new System.Drawing.Size(188, 43);
+            this.update_complete.TabIndex = 6;
+            this.update_complete.Text = "Update Complete";
+            this.update_complete.UseVisualStyleBackColor = true;
+            this.update_complete.Click += new System.EventHandler(this.update_complete_Click);
+            // 
+            // update_pending
+            // 
+            this.update_pending.Location = new System.Drawing.Point(25, 95);
+            this.update_pending.Name = "update_pending";
+            this.update_pending.Size = new System.Drawing.Size(188, 43);
+            this.update_pending.TabIndex = 7;
+            this.update_pending.Text = "Update Pending";
+            this.update_pending.UseVisualStyleBackColor = true;
+            this.update_pending.Click += new System.EventHandler(this.update_pending_Click);
             // 
             // Governance_Tool
             // 
@@ -218,12 +219,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1782, 941);
-            this.Controls.Add(this.reports);
+            this.Controls.Add(this.update_pending);
+            this.Controls.Add(this.update_complete);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.searchby_date);
             this.Controls.Add(this.searchby_l1_handler);
-            this.Controls.Add(this.update_status);
             this.Controls.Add(this.dataGridView1);
             this.Name = "Governance_Tool";
             this.Text = "Governance_Tool";
@@ -238,7 +239,6 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button update_status;
         private System.Windows.Forms.ComboBox searchby_l1_handler;
         private System.Windows.Forms.DateTimePicker searchby_date;
         private System.Windows.Forms.Label label1;
@@ -253,6 +253,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn txt_LastUpdatedBy;
         private System.Windows.Forms.DataGridViewTextBoxColumn txt_IsStatus_Updated;
         private System.Windows.Forms.DataGridViewTextBoxColumn txt_Description;
-        private System.Windows.Forms.Button reports;
+        private System.Windows.Forms.Button update_complete;
+        private System.Windows.Forms.Button update_pending;
     }
 }

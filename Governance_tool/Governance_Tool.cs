@@ -155,7 +155,15 @@ namespace Governance_tool
             }
         }
 
-        private void update_status_Click(object sender, EventArgs e)
+        private void searchby_l1_handler_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape || e.KeyCode == Keys.Delete || e.KeyCode == Keys.Space || e.KeyCode == Keys.Back)
+            {
+                searchby_l1_handler.SelectedIndex = -1;
+            }
+        }
+
+        private void update_complete_Click(object sender, EventArgs e)
         {
             try
             {
@@ -174,7 +182,7 @@ namespace Governance_tool
                         conn.ConnectionString = connectionstringtxt;
                         cmd.Connection = conn;
                         cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.CommandText = "dbo.usp_governance_tracker_bulkupdate_dotnet";
+                        cmd.CommandText = "dbo.usp_governance_tracker_bulkupdate_complete_dotnet";
                         cmd.Parameters.AddWithValue("@ID", Convert.ToInt32(item.Cells["txt_ID"].Value));
                         cmd.Parameters.AddWithValue("@LastUpdatedBy", Environment.UserName.ToString());
 
@@ -193,11 +201,41 @@ namespace Governance_tool
             }
         }
 
-        private void searchby_l1_handler_KeyDown(object sender, KeyEventArgs e)
+        private void update_pending_Click(object sender, EventArgs e)
         {
-            if (e.KeyCode == Keys.Escape || e.KeyCode == Keys.Delete || e.KeyCode == Keys.Space || e.KeyCode == Keys.Back)
+            try
             {
-                searchby_l1_handler.SelectedIndex = -1;
+                foreach (DataGridViewRow item in dataGridView1.Rows)
+                {
+                    bool isselected = Convert.ToBoolean(item.Cells["txt_CheckValue"].Value);
+                    //if ((bool)item.Cells["txtCheckValue"].Value == true)
+                    if (isselected)
+                    {
+                        if (conn.State == ConnectionState.Open)
+                        {
+                            conn.Close();
+                        }
+
+                        cmd.Parameters.Clear();
+                        conn.ConnectionString = connectionstringtxt;
+                        cmd.Connection = conn;
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.CommandText = "dbo.usp_governance_tracker_bulkupdate_pending_dotnet";
+                        cmd.Parameters.AddWithValue("@ID", Convert.ToInt32(item.Cells["txt_ID"].Value));
+                        cmd.Parameters.AddWithValue("@LastUpdatedBy", Environment.UserName.ToString());
+
+                        conn.Open();
+                        cmd.ExecuteNonQuery();
+                        cmd.Parameters.Clear();
+                        conn.Close();
+                    }
+                }
+                MessageBox.Show("Records Updated Successfully");
+                datagridview_display_overall();
+            }
+            catch (Exception ab)
+            {
+                MessageBox.Show("Error Generated Details: " + ab.ToString());
             }
         }
     }
