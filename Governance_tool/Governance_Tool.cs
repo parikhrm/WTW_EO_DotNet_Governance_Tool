@@ -28,6 +28,7 @@ namespace Governance_tool
         {
             searchby_date.Value = DateTime.Now.ToLocalTime();
             searchby_L1_handler_list();
+            searchby_status_list();
             reset_overall();
         }
 
@@ -56,6 +57,34 @@ namespace Governance_tool
 
                 conn.Close();
                 searchby_l1_handler.SelectedIndex = -1;
+            }
+
+            catch (Exception ab)
+            {
+                MessageBox.Show("Error Generated Details: " + ab.ToString());
+            }
+        }
+
+        public void searchby_status_list()
+        {
+            if (conn.State == ConnectionState.Open)
+            {
+                conn.Close();
+            }
+
+            try
+            {
+                Emp_Names obj_status = new Emp_Names();
+                DataTable dtaa = new DataTable();
+
+                obj_status.searchby_status_list (dtaa);
+
+                searchby_status.DataSource = dtaa;
+                searchby_status.DisplayMember = "IsStatus_Updated";
+
+
+                conn.Close();
+                searchby_status.SelectedIndex = -1;
             }
 
             catch (Exception ab)
@@ -249,6 +278,19 @@ namespace Governance_tool
             {
                 MessageBox.Show("Unable to open link that was clicked. Following are the error generated details" + ab.ToString());
             }
+        }
+
+        private void searchby_status_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape || e.KeyCode == Keys.Delete || e.KeyCode == Keys.Space || e.KeyCode == Keys.Back)
+            {
+                searchby_status.SelectedIndex = -1;
+            }
+        }
+
+        private void searchby_status_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            datagridview_display_overall();
         }
     }
 }

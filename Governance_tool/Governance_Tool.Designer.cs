@@ -46,6 +46,8 @@
             this.update_complete = new System.Windows.Forms.Button();
             this.update_pending = new System.Windows.Forms.Button();
             this.reports = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.searchby_status = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -169,7 +171,7 @@
             // 
             this.searchby_date.CustomFormat = " ";
             this.searchby_date.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.searchby_date.Location = new System.Drawing.Point(774, 37);
+            this.searchby_date.Location = new System.Drawing.Point(755, 37);
             this.searchby_date.Name = "searchby_date";
             this.searchby_date.Size = new System.Drawing.Size(217, 26);
             this.searchby_date.TabIndex = 3;
@@ -179,7 +181,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(491, 83);
+            this.label1.Location = new System.Drawing.Point(491, 76);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(162, 20);
             this.label1.TabIndex = 4;
@@ -188,7 +190,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(822, 83);
+            this.label2.Location = new System.Drawing.Point(805, 76);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(119, 20);
             this.label2.TabIndex = 5;
@@ -224,12 +226,34 @@
             this.reports.UseVisualStyleBackColor = true;
             this.reports.Click += new System.EventHandler(this.reports_Click);
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(1047, 76);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(131, 20);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "Search by Status";
+            // 
+            // searchby_status
+            // 
+            this.searchby_status.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.searchby_status.FormattingEnabled = true;
+            this.searchby_status.Location = new System.Drawing.Point(994, 35);
+            this.searchby_status.Name = "searchby_status";
+            this.searchby_status.Size = new System.Drawing.Size(236, 28);
+            this.searchby_status.TabIndex = 10;
+            this.searchby_status.SelectedIndexChanged += new System.EventHandler(this.searchby_status_SelectedIndexChanged);
+            this.searchby_status.KeyDown += new System.Windows.Forms.KeyEventHandler(this.searchby_status_KeyDown);
+            // 
             // Governance_Tool
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1782, 941);
+            this.Controls.Add(this.searchby_status);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.reports);
             this.Controls.Add(this.update_pending);
             this.Controls.Add(this.update_complete);
@@ -268,5 +292,7 @@
         private System.Windows.Forms.Button update_complete;
         private System.Windows.Forms.Button update_pending;
         private System.Windows.Forms.Button reports;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox searchby_status;
     }
 }

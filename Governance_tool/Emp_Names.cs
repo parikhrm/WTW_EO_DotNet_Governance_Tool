@@ -44,5 +44,35 @@ namespace Governance_tool
                 MessageBox.Show("Error Generated Details : " + ab.ToString());
             }
         }
+
+        public void searchby_status_list(DataTable dta)
+        {
+            string connectionstringtxt = "Data Source=A20-CB-DBSE01P;Initial Catalog=DRD;User ID=DRDUsers;Password=24252425";
+            SqlCommand cmd = new SqlCommand();
+            SqlConnection conn = new SqlConnection();
+
+            if (conn.State == ConnectionState.Open)
+            {
+                conn.Close();
+            }
+            try
+            {
+                SqlDataAdapter sda = new SqlDataAdapter();
+                DataTable dt = new DataTable();
+                conn.ConnectionString = connectionstringtxt;
+                cmd.Connection = conn;
+                conn.Open();
+                cmd.Parameters.Clear();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "select distinct IsStatus_Updated from dbo.vw_governance_tracker_transactional_dotnet where IsStatus_Updated is not null order by IsStatus_Updated";
+                sda.SelectCommand = cmd;
+                dt = dta;
+                sda.Fill(dta);
+            }
+            catch (Exception ab)
+            {
+                MessageBox.Show("Error Generated Details : " + ab.ToString());
+            }
+        }
     }
 }
