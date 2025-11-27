@@ -135,7 +135,14 @@ namespace Governance_tool
                     {
                         cmd.Parameters.AddWithValue("@searchby_date", searchby_date.Value.Date);
                     }
-
+                    if(string.IsNullOrEmpty(searchby_status.Text))
+                    {
+                        cmd.Parameters.AddWithValue("@searchby_status",DBNull.Value);
+                    }
+                    else
+                    {
+                        cmd.Parameters.AddWithValue("@searchby_status", searchby_status.Text);
+                    }
                 }
                 sda.SelectCommand = cmd;
                 sda.Fill(dt);
